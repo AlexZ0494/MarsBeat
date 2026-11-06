@@ -1,0 +1,87 @@
+ScreenManager:
+    MDScreen:
+        MDBoxLayout:
+            orientation: "horizontal"
+            md_bg_color: 1, 0, 0, 1
+            MDBoxLayout:
+                id: nav_bar
+                orientation: "vertical"
+                adaptive_width: True
+                pos_hint: {"top": 1}
+
+                MDNavigationRail:
+                    id: navigation_rail
+                    type: "selected"
+                    md_bg_color: 0, 1, 0, 0.25
+                    on_item_press: app.action_content(*args)
+
+                    MDNavigationRailItem:
+                        text: "Online"
+                        icon: "web"
+
+                    MDNavigationRailItem:
+                        text: "Playlists"
+                        icon: "playlist-music"
+
+                    MDNavigationRailItem:
+                        text: "Favorite"
+                        icon: "heart-outline"
+
+                    MDNavigationRailItem:
+                        text: "Local"
+                        icon: "folder"
+
+                    MDNavigationRailItem:
+                        text: "Setting"
+                        icon: "cog-outline"
+                        pos_hint: {"center_y": .5}
+            MDBoxLayout:
+                id: window
+                orientation: "vertical"
+                padding: 0
+                spacing: 1
+
+                MDBoxLayout:
+                    id: content
+                    orientation: "vertical"
+                    padding: 0
+                    spacing: 0
+
+                MDBoxLayout:
+                    id: playing
+                    adaptive_height: True
+                    orientation: "horizontal"
+                    md_bg_color: 0, 0, 0, .5
+                    MDIconButton:
+                        icon: "skip-previous-outline"
+                        theme_icon_color: "Custom"
+                    MDIconButton:
+                        id: play_pause
+                        icon: "play"
+                        theme_icon_color: "Custom"
+                    MDIconButton:
+                        icon: "skip-next-outline"
+                        theme_icon_color: "Custom"
+                    FitImage:
+                        source: app.img_source
+                        size_hint: .2, 1
+                        radius: 36, 36, 36, 36
+                    MDLabel:
+                        id: name_track
+                        text: "Imagine Dragons - Believer"
+                        halign: "center"
+                        theme_text_color: "Primary"
+                    MDLabel:
+                        text: "03:24"
+                        halign: "right"
+                        size_hint_x: .25
+                        theme_text_color: "Primary"
+                    MDIconButton:
+                        icon: "plus"
+                        pos_hint: {"center_y": .5}
+                    MDIconButton:
+                        icon: "heart-plus-outline"
+                        pos_hint: {"center_y": .5}
+                    MDIconButton:
+                        icon: "download-outline"
+                        pos_hint: {"center_y": .5}

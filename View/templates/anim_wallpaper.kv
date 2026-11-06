@@ -1,0 +1,25 @@
+<Floating_Sphere>:
+    canvas.before:
+        Color:
+            rgba: 255/255, 170/255, 29/255, 0.5
+        BoxShadow:
+            inset: False
+            size: 350, 350
+            pos: self.pos
+            offset: -10, -10
+            blur_radius: 500
+            spread_radius: -10, -10
+            border_radius: 500, 500, 500, 500
+
+<Bubble>:
+    canvas.before:
+        Color:
+            rgba: 255/255, 170/255, 29/255, 0.5
+        BoxShadow:
+            inset: True
+            size: 350, 350
+            pos: self.pos
+            offset: -10, -10
+            blur_radius: 500
+            spread_radius: -10, -10
+            border_radius: 500, 500, 500, 500

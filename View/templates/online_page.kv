@@ -1,0 +1,70 @@
+MDBoxLayout:
+    id: online
+    orientation: 'vertical'
+    spacing: 5
+
+    MDBoxLayout:
+        id: f_genres
+        orientation: 'vertical'
+        spacing: 0
+        size_hint: 1, .3
+        md_bg_color: 0, 0, 0, 0.3
+        radius: [30, 30, 30, 30]
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            adaptive_height: True
+            size_hint: .95, .3
+            pos_hint: {'center_x': .5}
+
+            MDLabel:
+                text: "Favorite genres"
+                font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+                halign: "left"
+                font_size: "24sp"
+                theme_text_color: "Primary"
+
+            MDRoundFlatButton:
+                text: "view all genres"
+                font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+                theme_text_color: "Primary"
+                line_color: 0, 0, 0, 0
+
+        MDScrollView:
+            do_scroll_x: True
+            do_scroll_y: False
+            size_hint_x: .95
+            pos_hint: {'center_x': .5}
+            MDBoxLayout:
+                id: scroll_genres
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint: None, None
+
+    MDBoxLayout:
+        id: online_content
+        orientation: 'horizontal'
+        spacing: 5
+        #md_bg_color: 0, 1, 0, 1
+
+        MDBoxLayout:
+            id: music_list
+            orientation: 'vertical'
+            #spacing: 5
+            md_bg_color: 0, 0, 0, 0
+            radius: [30, 30, 30, 30]
+
+        MDBoxLayout:
+            id: albums_list
+            orientation: 'vertical'
+            spacing: 5
+            md_bg_color: 0, 0, 0, 0.3
+            radius: [30, 30, 30, 30]
+
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                StackLayout:
+                    id: albums
+                    size_hint_y: None
+                    height: self.minimum_height

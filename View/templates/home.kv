@@ -1,0 +1,134 @@
+#:include View/Templates/anim_wallpaper.kv
+
+
+MDScreen:
+    md_bg_color: 196/255, 30/255, 58/255, 0.5
+    Floating_Sphere:
+        id: sphere
+        pos: self.pos
+    Floating_Sphere:
+        id: sphere1
+        pos: self.pos
+    Floating_Sphere:
+        id: sphere2
+        pos: self.pos
+
+# Основное окно
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 5, 10, 5, 5
+        spacing: 10
+        #md_bg_color: 255, 255, 255, 0.2
+        MDBoxLayout:
+            id: box
+            orientation: "horizontal"
+            # бокс навигационной панели
+            MDBoxLayout:
+                id: nav_bar
+                orientation: "horizontal"
+                adaptive_width: True
+                md_bg_color: 0, 0, 0, 0.3
+                padding: 21
+                radius: 40
+                # бокс для центрирования кнопок
+                MDBoxLayout:
+                    id: nav
+                    orientation: "vertical"
+                    adaptive_size: True
+                    pos_hint: {'center_x': .5, 'center_y': .6}
+                    spacing: 20
+                    MDIconButton:
+                        id: web
+                        icon: "web"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        on_press: app.test_press(*args, 'web')
+                    MDIconButton:
+                        icon: "home-outline"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: None
+                        on_press: app.test_press(*args, 'home')
+                    MDIconButton:
+                        icon: "radio-tower"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: None
+                        on_press: app.test_press(*args)
+                    MDIconButton:
+                        icon: "playlist-music"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: None
+                        on_press: app.test_press(*args)
+                    MDIconButton:
+                        icon: "heart-outline"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: None
+                        on_press: app.test_press(*args)
+                    MDIconButton:
+                        icon: "cog-outline"
+                        icon_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: None
+                        on_press: app.test_press(*args)
+            # бокс для основного контента
+            MDBoxLayout:
+                id: content
+                orientation: "vertical"
+                padding: 5, 0, 0, 0
+                #md_bg_color: 1, 0, 0, 1
+        # бокс плеера
+        MDBoxLayout:
+            id: player
+            orientation: "vertical"
+            md_bg_color: 0, 0, 0, 0.5
+            adaptive_height: True
+            size_hint_y: .1
+            radius: 30
+            MDBoxLayout:
+                id: manipulation
+                orientation: "horizontal"
+                pos_hint: {'x': .056}
+                size_hint_x: .9
+                spacing: 0
+                MDIconButton:
+                    icon: "skip-previous-outline"
+                    #theme_icon_color: "Custom"
+                    icon_size: "30sp"
+                    pos_hint: {'center_y': .5}
+                MDIconButton:
+                    id: play_pause
+                    icon: "play"
+                    #theme_icon_color: "Custom"
+                    icon_size: "40sp"
+                    pos_hint: {'center_y': .5}
+                    on_press: app.play_pause(*args)
+                MDIconButton:
+                    icon: "skip-next-outline"
+                    #theme_icon_color: "Custom"
+                    icon_size: "30sp"
+                    pos_hint: {'center_y': .5}
+
+                MDLabel:
+                    id: name_track
+                    text: ""
+                    font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+                    halign: "center"
+                    font_size: "24sp"
+                    theme_text_color: "Primary"
+
+                MDIconButton:
+                    icon: "plus"
+                    icon_size: "30sp"
+                    pos_hint: {"center_y": .5}
+                MDIconButton:
+                    icon: "heart-plus-outline"
+                    icon_size: "30sp"
+                    pos_hint: {"center_y": .5}
+                MDIconButton:
+                    icon: "download-outline"
+                    icon_size: "30sp"
+                    pos_hint: {"center_y": .5}

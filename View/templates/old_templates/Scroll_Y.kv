@@ -1,0 +1,41 @@
+ScrollView:
+    do_scroll_x: True
+    do_scroll_y: False
+    GridLayout:
+        id: horizontal_grid
+        rows: 1
+        spacing: 10
+        size_hint: (None, .1)
+        width: self.minimum_width
+
+
+            ScrollView:
+        id: scroll
+        do_scroll_x: True
+        do_scroll_y: False
+
+    MDBoxLayout:
+        id: online_content
+        orientation: 'horizontal'
+        spacing: 5
+        md_bg_color: 0, 1, 0, 1
+
+        MDBoxLayout:
+            id: music_list
+            orientation: 'vertical'
+            spacing: 5
+            md_bg_color: 0, 0, 1, .1
+
+        MDBoxLayout:
+            id: albums_list
+            orientation: 'vertical'
+            spacing: 5
+            md_bg_color: 0, 0, 1, .1
+
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                StackLayout:
+                    id: albums
+                    size_hint_y: None
+                    height: self.minimum_height

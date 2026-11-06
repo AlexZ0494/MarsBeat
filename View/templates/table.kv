@@ -1,0 +1,50 @@
+<Cell>:
+    TwoLineAvatarListItem:
+        id: cell
+        url: root.url
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        text: root.name_track
+        secondary_text: root.autor_name
+        font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+
+        ImageLeftWidget:
+            id: img
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            source: root.img
+
+        MDLabel:
+            id: time
+            text: root.time
+            font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+            halign: "right"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+MDBoxLayout:
+    orientation: 'vertical'
+    spacing: 5
+    md_bg_color: 0, 0, 0, 0.3
+    radius: [30, 30, 30, 30]
+
+    MDBoxLayout:
+        id: header
+        orientation: 'horizontal'
+        size_hint: .95, .05
+        pos_hint:{'center_x': .5, 'center_y': .5}
+        #spacing: 5
+
+        MDLabel:
+            id: text
+            text: "Recommended music"
+            font_name: "View/fonts/Nunito/static/Nunito-Regular.ttf"
+            halign: "left"
+            font_size: "14sp"
+
+    MDScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        size_hint: .95, 1
+        pos_hint: {'center_x': .5}
+        MDList:
+            id: tab
+            spacing: 5
+
